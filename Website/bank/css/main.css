@@ -1,0 +1,43 @@
+﻿body{
+    background-color: #16181b;
+}
+.navbar {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.jumbo-grey{
+    background-color: #808080;
+
+}
+.space {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.blue {
+    background-color: #1e7ebd;
+    padding-top: 2%;
+}
+
+.nav-graphite {
+    background-color: #16181b;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+.nav-blue {
+    background-color: #074f7e;
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: larger;
+}
+
+a:hover {
+    text-decoration: none;
+    color: black;
+}
