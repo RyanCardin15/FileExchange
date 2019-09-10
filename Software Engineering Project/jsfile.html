@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<title>Sumedh Saurabh</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+<!-- !PAGE CONTENT! -->
+<!-- Start Nav Structure -->
+    <nav>
+      <a id="logo">Sumedh Saurabh</a>
+      <a href="contact.html">Contact</a>
+      <a href="jsfile.html">JavaScript Fun!</a>
+      <a href="work.html">Works</a>
+      <a href="index.html">Home</a>
+    </nav>
+<!-- End Nav Structure -->
+<div class="intro">
+  <!-- Header -->
+  <center>
+    <header>
+      <h1><b>JavaScript Fun!</b></h1>
+      <p><b>This is some javascript fun!</p>
+    </header>
+  </center>
+  <!-- Javascript fun -->
+  <center>
+    <p>Click on words to move!</p>
+    <div id ="container">
+      <div id ="animate" onclick="moveWords()">Hello, World!</div>
+    </div>
+    <div>
+      <form name="calc">
+        First Number: <input type="text" name="num1">
+        <br>
+        Second Number: <input type="text" name="num2">
+        <br>
+        <input type="submit" value="Add!" onclick="add()">
+        <input type="submit" value="Subtract!" onclick="sub()">
+        <input type="submit" value="Divide!" onclick="div()">
+        <input type="submit" value="Multiply!" onclick="mul()">
+      </form>
+    </div>
+  </center>
+  <br />
+  <center>
+  <h1>Counter</h1>
+  <p id="counter">The number replace this statement</p>
+  <button type="button" onclick="clickCount()">Start Counting!</button>
+  </center>
+
+
+
+<!-- End Page Content -->
+
+<!-- Footer -->
+<footer>
+  <center>
+    <a href="https://www.instagram.com/sohrabmeman/"><i class="fa fa-instagram" ></i></a>
+    <i class="fa fa-linkedin"></i>
+  <center>
+</footer>
+
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

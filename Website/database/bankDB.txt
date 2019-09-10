@@ -1,7 +1,0 @@
-Member_ID,Member_UserName,Member_Password,Member_Fname,Member_Lname,Member_CheckingNum,Member_SavingsNum,Member_CheckingTotal,Member_SavingTotal
-1,dsalyers,molly361,david,salyers,10000,50002,2000,8500
-4,thebiz,bizpassword,bailey,smith,10002,50004,500,750
-5,msanchez,password1,marge,bader,10003,50005,100,1000
-6,boiWunda,thisone123,devin,cole,10004,50006,7560,2000
-7,oscarD,box4573,oscar,de la hoya,10005,50007,10000,10000
-8,rbhall,robi9876,robert,hall,10006,50008,5800,2650

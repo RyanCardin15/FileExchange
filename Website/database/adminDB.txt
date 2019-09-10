@@ -1,2 +1,0 @@
-Admin_AdminID,Admin_AdminUsername,Admin_AdminPassword,Admin_AdminFirstName,Admin_AdminLastName
-1,adminRS,123456,ryan,salyers
