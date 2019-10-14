@@ -8,18 +8,27 @@ import java.io.IOException;
 import java.util.List;
 
 public class Controller {
-    Scene scene;
+    Scene register, login;
 
     {
-        try {
-            scene = new Scene(FXMLLoader.load(getClass().getResource("sample.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+    }
+
+    public Controller(){
+
     }
 
     public void addFile(File f){
-
+        try {
+            register = new Scene(FXMLLoader.load(getClass().getResource("register.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            login = new Scene(FXMLLoader.load(getClass().getResource("login.fxml")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public void deleteFile(File f){
 
