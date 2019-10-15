@@ -56,10 +56,10 @@ public class Controller {
 
 
 
-   MongoClientURI uri = new MongoClientURI(
-            "mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
+   //MongoClientURI uri = new MongoClientURI(
+   //         "mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
 
-    MongoClient mongoClient = new MongoClient(uri);
-    MongoDatabase database = mongoClient.getDatabase("test");
+    //MongoClient mongoClient = new MongoClient(uri);
+    //MongoDatabase database = mongoClient.getDatabase("test");
 
 }
