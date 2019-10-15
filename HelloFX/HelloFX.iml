@@ -12,5 +12,7 @@
     <orderEntry type="library" name="mongodb-driver-sync-3.11.1" level="project" />
     <orderEntry type="library" name="mongodb-driver-sync-3.11.1-javadoc" level="project" />
     <orderEntry type="library" name="mongodb-driver-sync-3.11.1-sources" level="project" />
+    <orderEntry type="library" name="mongodb-driver-legacy-3.11.1" level="project" />
+    <orderEntry type="library" name="mongodb-driver-3.11.1" level="project" />
   </component>
 </module>

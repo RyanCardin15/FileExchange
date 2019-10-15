@@ -1,5 +1,7 @@
 package sample;
 
+import com.mongodb.MongoClient;
+import com.mongodb.MongoClientURI;
 import com.mongodb.client.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -53,8 +55,11 @@ public class Controller {
 
 
 
-    MongoClient mongoClient = MongoClients.create("mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
-    MongoDatabase database = mongoClient.getDatabase("test");
 
+   MongoClientURI uri = new MongoClientURI(
+            "mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
+
+    MongoClient mongoClient = new MongoClient(uri);
+    MongoDatabase database = mongoClient.getDatabase("test");
 
 }
