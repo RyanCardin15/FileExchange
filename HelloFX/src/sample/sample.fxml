@@ -21,8 +21,8 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="131.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Log In" />
-                  <Button layoutX="130.0" layoutY="145.0" mnemonicParsing="false" text="Register" />
+                  <Button fx:id="btnLogin" layoutX="131.0" layoutY="109.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="58.0" text="Log In" />
+                  <Button fx:id="btnRegister" layoutX="130.0" layoutY="145.0" mnemonicParsing="false" onAction="#reg_click" text="Register" />
                   <Text layoutX="24.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text=".TXT ONLY STORAGE!" wrappingWidth="271.98046875">
                      <font>
                         <Font name="Broadway" size="24.0" />
