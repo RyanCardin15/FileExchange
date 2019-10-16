@@ -36,7 +36,7 @@ public class Controller {
         stage.setScene(new Scene(root));
     }
 
-
+    String hello = "sup";
 
 
     public void deleteFile(ActionEvent event, File f){
