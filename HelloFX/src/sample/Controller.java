@@ -36,6 +36,8 @@ public class Controller {
         stage.setScene(new Scene(root));
     }
 
+
+    String text = "hi";
     String hello = "sup";
 
 
