@@ -4,47 +4,43 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.*;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import java.io.*;
+import javafx.fxml.FXML;
+import java.awt.event.ActionListener;
+import javafx.event.ActionEvent;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
+
 import java.io.IOException;
+import java.util.EventListener;
 import java.util.List;
-import java.io.File;
+
 public class Controller {
-    Scene register, login;
 
-    {
-
-    }
-
-    public Controller(){
-
-    }
+    @FXML
+    private Button btnLogin, btnRegister;
 
     public void addFile(File f){
-        try {
-            register = new Scene(FXMLLoader.load(getClass().getResource("register.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            login = new Scene(FXMLLoader.load(getClass().getResource("login.fxml")));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public static void deleteFile(File f){
-        File f1 = new File(String.valueOf(f));
-        boolean success = f1.delete();
-        if (!success){
-            System.out.println("Deletion failed.");
-            System.exit(0);
-        }
-        else{
-            System.out.println("File deleted.");
-        }
+
     }
 
-    public void validateUser(){
+    @FXML
+    protected void initialize(){
+
+    }
+    @FXML
+    protected void reg_click(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Stage stage = (Stage)btnRegister.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
+
+    public void deleteFile(ActionEvent event, File f){
+
+    }
+    public void validateUser(ActionEvent event){
 
     }
     public void addUser(boolean admin){
