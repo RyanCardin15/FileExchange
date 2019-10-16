@@ -7,16 +7,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXML;
+import javax.xml.*;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.awt.event.ActionListener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.EventListener;
 import java.util.List;
 
 public class Controller {
+
+
+    public Controller() throws SQLException {
+
+    }
+
+
 
     @FXML
     private Button btnLogin, btnRegister;
@@ -24,6 +37,7 @@ public class Controller {
     public void addFile(File f){
 
     }
+
 
     @FXML
     protected void initialize(){
@@ -66,13 +80,4 @@ public class Controller {
         return user;
     }
 
-
-
-/*
-   MongoClientURI uri = new MongoClientURI(
-            "mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
-
-    MongoClient mongoClient = new MongoClient(uri);
-    MongoDatabase database = mongoClient.getDatabase("test");
-*/
 }

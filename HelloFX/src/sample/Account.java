@@ -7,6 +7,7 @@ public class Account {
         private String fName;
         private String lName;
         private String email;
+        private String password;
 
         public Account(){
             this.username = "";
@@ -14,15 +15,19 @@ public class Account {
             this.fName = "";
             this.lName = "";
             this.email = "";
+            this.password="";
         }
-        public Account(String u, boolean a, String f, String l, String e){
+        public Account(String u, boolean a, String f, String l, String e, String p){
             this.username = u;
             this.isAdmin = a;
             this.fName = f;
             this.lName = l;
             this.email = e;
+            this.password = p;
         }
-        public void get(String s, String p){
 
+        @Override
+        public String toString() {
+            return "Account [fName=" + fName + ", lName=" + lName + ", username=" + username + ", email=" + email + ", password=" + password + "]";
         }
 }
