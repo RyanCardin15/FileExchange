@@ -61,35 +61,35 @@ public class AccountList {
                         if (event.asStartElement().getName().getLocalPart()
                                 .equals(LNAME)) {
                             event = eventReader.nextEvent();
-                            item.setMode(event.asCharacters().getData());
+                            item.setLName(event.asCharacters().getData());
                             continue;
                         }
                     }
                     if (event.asStartElement().getName().getLocalPart()
-                            .equals(UNIT)) {
+                            .equals(EMAIL)) {
                         event = eventReader.nextEvent();
-                        item.setUnit(event.asCharacters().getData());
+                        item.setEmail(event.asCharacters().getData());
                         continue;
                     }
 
                     if (event.asStartElement().getName().getLocalPart()
-                            .equals(CURRENT)) {
+                            .equals(PASSWORD)) {
                         event = eventReader.nextEvent();
-                        item.setCurrent(event.asCharacters().getData());
+                        item.setPassword(event.asCharacters().getData());
                         continue;
                     }
 
                     if (event.asStartElement().getName().getLocalPart()
-                            .equals(INTERACTIVE)) {
+                            .equals(USERNAME)) {
                         event = eventReader.nextEvent();
-                        item.setInteractive(event.asCharacters().getData());
+                        item.setUsername(event.asCharacters().getData());
                         continue;
                     }
                 }
                 // If we reach the end of an item element, we add it to the list
                 if (event.isEndElement()) {
                     EndElement endElement = event.asEndElement();
-                    if (endElement.getName().getLocalPart().equals(ITEM)) {
+                    if (endElement.getName().getLocalPart().equals(ACCOUNT)) {
                         items.add(item);
                     }
                 }
