@@ -36,6 +36,13 @@ public class Controller {
         stage.setScene(new Scene(root));
     }
 
+    @FXML
+    protected void login_click(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        Stage stage = (Stage)btnRegister.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
 
 
     public void deleteFile(ActionEvent event, File f){
@@ -61,11 +68,11 @@ public class Controller {
 
 
 
-
+/*
    MongoClientURI uri = new MongoClientURI(
             "mongodb+srv://admin:tamucc123@amcluster0-zsya9.mongodb.net/test?retryWrites=true&w=majority");
 
     MongoClient mongoClient = new MongoClient(uri);
     MongoDatabase database = mongoClient.getDatabase("test");
-
+*/
 }
