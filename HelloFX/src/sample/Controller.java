@@ -5,10 +5,10 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-
+import java.io.*;
 import java.io.IOException;
 import java.util.List;
-
+import java.io.File;
 public class Controller {
     Scene register, login;
 
@@ -32,9 +32,18 @@ public class Controller {
             e.printStackTrace();
         }
     }
-    public void deleteFile(File f){
-
+    public static void deleteFile(File f){
+        File f1 = new File(String.valueOf(f));
+        boolean success = f1.delete();
+        if (!success){
+            System.out.println("Deletion failed.");
+            System.exit(0);
+        }
+        else{
+            System.out.println("File deleted.");
+        }
     }
+
     public void validateUser(){
 
     }
