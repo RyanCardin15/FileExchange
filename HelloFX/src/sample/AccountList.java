@@ -17,12 +17,12 @@ import javax.xml.stream.events.XMLEvent;
 
 public class AccountList {
 
-    static final private String ACCOUNT;
-    static final private String USERNAME;
-    static final private String FNAME;
-    static final private String lNAME;
-    static final private String EMAIL;
-    static final private String PASSWORD;
+    static final private String ACCOUNT = "";
+    static final private String USERNAME = "";
+    static final private String FNAME = "";
+    static final private String LNAME = "";
+    static final private String EMAIL = "";
+    static final private String PASSWORD = "";
 
     @SuppressWarnings({ "unchecked", "null" })
     public List<Account> readConfig(String configFile) {
