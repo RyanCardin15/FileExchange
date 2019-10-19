@@ -31,18 +31,23 @@ public class Account {
         return "Account [fName=" + fName + ", lName=" + lName + ", username=" + username + ", email=" + email + ", password=" + password + "]";
     }
 
-    public void setFName(String value) {
+    public void setFName(String fName) {
+        this.fName = fName;
     }
 
-    public void setLName(String data) {
+    public void setLName(String lName) {
+        this.lName = lName;
     }
 
-    public void setEmail(String data) {
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setPassword(String data) {
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setUsername(String data) {
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
