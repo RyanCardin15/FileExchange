@@ -80,8 +80,8 @@ public class Controller {
         List<Account> result = temp.parallelStream()
                 .filter(a -> (Objects.equals(a.getUsername(), txtUser.getText())) && (Objects.equals(a.getPassword(), txtPassword.getText())))
                 .collect(Collectors.toList());
-
-
+        if(!result.isEmpty())
+            isSuccess = true;
         if(isSuccess) {
             Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
             Stage stage = (Stage) btnLogin.getScene().getWindow();
