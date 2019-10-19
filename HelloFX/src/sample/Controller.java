@@ -83,7 +83,7 @@ public class Controller {
         if(!result.isEmpty())
             isSuccess = true;
         if(isSuccess) {
-            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
             Stage stage = (Stage) btnLogin.getScene().getWindow();
             stage.setScene(new Scene(root));
         }
