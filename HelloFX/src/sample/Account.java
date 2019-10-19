@@ -3,7 +3,6 @@ package sample;
 public class Account {
     private String username;
     private boolean isAdmin;
-    private Controller controller;
     private String fName;
     private String lName;
     private String email;
@@ -49,5 +48,24 @@ public class Account {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+    public String getUsername() {
+        return username;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
     }
 }

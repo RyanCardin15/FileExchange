@@ -21,10 +21,10 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <PasswordField layoutX="224.0" layoutY="137.0" promptText="Password" />
-                  <TextField layoutX="224.0" layoutY="111.0" promptText="Username" />
-                  <Button layoutX="225.0" layoutY="184.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Login" />
-                  <Button layoutX="32.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+                  <PasswordField fx:id="txtPassword" layoutX="224.0" layoutY="137.0" promptText="Password" />
+                  <TextField fx:id="txtUser" layoutX="224.0" layoutY="111.0" promptText="Username" />
+                  <Button fx:id="btnLoginSubmit" layoutX="225.0" layoutY="184.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="151.0" text="Login" />
+                  <Button fx:id="btnBack" layoutX="32.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
                </children>
             </Pane>
          </center>

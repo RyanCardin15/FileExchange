@@ -15,12 +15,16 @@ import java.sql.ResultSet;
 import java.awt.event.ActionListener;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Controller {
 
@@ -32,7 +36,13 @@ public class Controller {
 
 
     @FXML
-    private Button btnLogin, btnRegister;
+    private Button btnLogin, btnRegister, btnLoginSubmit, btnBack;
+
+    @FXML
+    private TextField txtUser, txtPassword;
+
+    @FXML
+    private String filename;
 
     public void addFile(File f){
 
@@ -53,7 +63,7 @@ public class Controller {
     @FXML
     protected void login_click(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Stage stage = (Stage)btnRegister.getScene().getWindow();
+        Stage stage = (Stage)btnLogin.getScene().getWindow();
         stage.setScene(new Scene(root));
     }
 
@@ -62,8 +72,21 @@ public class Controller {
     public void deleteFile(ActionEvent event, File f){
 
     }
-    public void validateUser(ActionEvent event){
+    public void validateUser(ActionEvent event) throws IOException{
+        Boolean isSuccess = false;
+        AccountList pull = new AccountList();
+        List<Account> temp = pull.readConfig(filename);
 
+        List<Account> result = temp.parallelStream()
+                .filter(a -> (Objects.equals(a.getUsername(), txtUser.getText())) && (Objects.equals(a.getPassword(), txtPassword.getText())))
+                .collect(Collectors.toList());
+
+
+        if(isSuccess) {
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Stage stage = (Stage) btnLogin.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        }
     }
     public void addUser(boolean admin){
 
