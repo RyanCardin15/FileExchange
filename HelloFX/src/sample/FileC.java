@@ -1,15 +1,15 @@
 package sample;
 
-public class File {
+public class FileC {
     String name;
     double size;
 
-    public File(){
+    public FileC(){
         this.name = "";
         this.size = 0.0;
 
     }
-    public File(String name, double size){
+    public FileC(String name, double size){
         this.name = name;
         this.size = size;
     }

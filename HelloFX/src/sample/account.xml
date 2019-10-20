@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <AccountList>
-	<ACCOUNT>
-		<FNAME>Sumedh</FNAME>
-    <LNAME>Saurabh</LNAME>
-	  <EMAIL>minimalsumedh@gmail.com</EMAIL>
-		<PASSWORD>tamucc123</PASSWORD>
-		<USERNAME>skateboy</USERNAME>
-	</ACCOUNT>
-  <ACCOUNT>
-		<FNAME>Admin</FNAME>
-    <LNAME>NoName</LNAME>
-	  <EMAIL>minimalsumedh@gmail.com</EMAIL>
-		<PASSWORD>tamucc123</PASSWORD>
-		<USERNAME>admin</USERNAME>
-	</ACCOUNT>
+	<Account>
+		<fname>Sumedh</fname>
+		<lname>Saurabh</lname>
+		<email>minimalsumedh@gmail.com</email>
+		<password>tamucc123</password>
+		<user>skateboy</user>
+	</Account>
+	<Account>
+		<fname>Admin</fname>
+		<lanme>root</lanme>
+		<email>minimalsumedh@gmail.com</email>
+		<password>tamucc123</password>
+		<user>admin</user>
+	</Account>
 </AccountList>

@@ -8,7 +8,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXML;
 import javax.xml.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,6 +21,11 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -42,9 +51,9 @@ public class Controller {
     private TextField txtUser, txtPassword;
 
     @FXML
-    private String filename;
+    private String filename = "src\\sample\\account.xml";
 
-    public void addFile(File f){
+    public void addFile(FileC f){
 
     }
 
@@ -73,14 +82,35 @@ public class Controller {
 
     }
     public void validateUser(ActionEvent event) throws IOException{
-        Boolean isSuccess = false;
-        AccountList pull = new AccountList();
-        List<Account> temp = pull.readConfig(filename);
+        File xmlFile = new File(filename);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder;
+        List<Account> accList = new ArrayList<>();
+        try {
+            dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(String.valueOf(xmlFile));
+            doc.getDocumentElement().normalize();
+            System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
+            NodeList nodeList = doc.getElementsByTagName("Account");
+            //now XML is loaded as Document in memory, lets convert it to Object List
 
-        List<Account> result = temp.parallelStream()
-                .filter(a -> (Objects.equals(a.getUsername(), txtUser.getText())) && (Objects.equals(a.getPassword(), txtPassword.getText())))
-                .collect(Collectors.toList());
-        if(!result.isEmpty())
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                accList.add(getAccount(nodeList.item(i))); // Error Starts here
+            }
+            //lets print Employee list information
+            for (Account temp : accList) {
+                System.out.println(temp.toString());
+            }
+        } catch (ParserConfigurationException | IOException | SAXException e1) {
+            e1.printStackTrace();
+        }
+        Boolean isSuccess = false;
+
+        Account result = accList.parallelStream()
+                .filter(a -> Objects.equals(a.getUsername(), txtUser.getText()))
+                .findAny()
+                .orElse(null);
+        if(result.getPassword() == txtPassword.getText())
             isSuccess = true;
         if(isSuccess) {
             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
@@ -101,6 +131,25 @@ public class Controller {
         Account user = new Account();
 
         return user;
+    }
+    private static Account getAccount(Node node) {
+        //XMLReaderDOM domReader = new XMLReaderDOM();
+        Account acc = new Account();
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+            Element element = (Element) node;
+            acc.setFName(getTagValue("fname", element));     // will not accept method
+            acc.setLName(getTagValue("lname", element));
+            acc.setEmail(getTagValue("email", element));
+            acc.setPassword(getTagValue("password", element));
+            acc.setUsername(getTagValue("user", element));
+        }
+
+        return acc;
+    }
+    private static String getTagValue(String tag, Element element) {
+        NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes(); // Error caused by this line. There's a null pointer exception
+        Node node = (Node) nodeList.item(0);
+        return node.getNodeValue();
     }
 
 }
