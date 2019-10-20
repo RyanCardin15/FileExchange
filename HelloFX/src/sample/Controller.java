@@ -91,8 +91,13 @@ public class Controller {
             Document doc = dBuilder.parse(String.valueOf(xmlFile));
             doc.getDocumentElement().normalize();
             System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
-            NodeList nodeList = doc.getElementsByTagName("Account");
+            NodeList nodeList = doc.getElementsByTagName("Account"); // receiving both current entrees as null values.. Fix so it reads value. Otherwise, method is working.
             //now XML is loaded as Document in memory, lets convert it to Object List
+            //Test
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                System.out.println(nodeList.item(i)); // Error Starts here
+            }
+            //
 
             for (int i = 0; i < nodeList.getLength(); i++) {
                 accList.add(getAccount(nodeList.item(i))); // Error Starts here
@@ -147,9 +152,10 @@ public class Controller {
         return acc;
     }
     private static String getTagValue(String tag, Element element) {
+        //String value = element.getElementsByTagName(tag).item(0).getTextContent();
         NodeList nodeList = element.getElementsByTagName(tag).item(0).getChildNodes(); // Error caused by this line. There's a null pointer exception
         Node node = (Node) nodeList.item(0);
-        return node.getNodeValue();
+        return node.getNodeValue(); //value;
     }
 
 }
