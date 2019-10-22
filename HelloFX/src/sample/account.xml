@@ -9,7 +9,7 @@
 	</Account>
 	<Account>
 		<fname>Admin</fname>
-		<lanme>root</lanme>
+		<lname>root</lname>
 		<email>minimalsumedh@gmail.com</email>
 		<password>tamucc123</password>
 		<user>admin</user>
