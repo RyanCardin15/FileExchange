@@ -1,3 +1,9 @@
+/*
+Team Cat
+Ryan Cardin
+Sumedh Sohrab
+Ahn Tran
+ */
 package sample;
 
 import javafx.fxml.FXMLLoader;
