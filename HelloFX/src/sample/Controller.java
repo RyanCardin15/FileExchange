@@ -31,6 +31,8 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -51,6 +53,9 @@ public class Controller {
 
     @FXML
     private TextField txtUser, txtPassword, txtFName, txtRegUser, txtRegPassword, txtRegEmail, txtLName;
+
+    @FXML
+    private Label pVal;
 
     @FXML
     private String filename = "src\\sample\\account.xml";
@@ -139,6 +144,27 @@ public class Controller {
             txtUser.setText("Invalid Login! Try Again!");
         }
     }
+    public boolean validatePassword(String pass){
+        if(pass.length()<8){
+            pVal.setText("Your password must be atleast 8 characters long");
+            return false;
+        }
+        Pattern p = Pattern.compile( "[0-9]" );
+        Matcher m = p.matcher( pass );
+        if(m.find()){
+            System.out.println("You all good man!");
+        } else {
+            pVal.setText("Your password must contain a number");
+            return false;
+        }
+        Pattern l = Pattern.compile("[a-zA-Z]+");
+        m = l.matcher(pass);
+        if (!m.find()){
+            pVal.setText("Your password must contain a letter");
+            return false;
+        }
+        return true;
+    }
     public void addUser(boolean admin){
 
     }
@@ -209,40 +235,42 @@ public class Controller {
                 System.out.println("It's correct");
             }
         } catch(NullPointerException n){
-            for (Account i : acc) {
-                Element account = document.createElement("Account");
-                rootElement.appendChild(account);
+            if(validatePassword(txtRegPassword.getText())) {
+                for (Account i : acc) {
+                    Element account = document.createElement("Account");
+                    rootElement.appendChild(account);
 
-                Element fname = document.createElement("fname");
-                fname.appendChild(document.createTextNode(i.getfName()));
-                account.appendChild(fname);
+                    Element fname = document.createElement("fname");
+                    fname.appendChild(document.createTextNode(i.getfName()));
+                    account.appendChild(fname);
 
-                Element lname = document.createElement("lname");
-                lname.appendChild(document.createTextNode(i.getlName()));
-                account.appendChild(lname);
+                    Element lname = document.createElement("lname");
+                    lname.appendChild(document.createTextNode(i.getlName()));
+                    account.appendChild(lname);
 
-                Element email = document.createElement("email");
-                email.appendChild(document.createTextNode(i.getEmail()));
-                account.appendChild(email);
+                    Element email = document.createElement("email");
+                    email.appendChild(document.createTextNode(i.getEmail()));
+                    account.appendChild(email);
 
-                Element password = document.createElement("password");
-                password.appendChild(document.createTextNode(i.getPassword()));
-                account.appendChild(password);
+                    Element password = document.createElement("password");
+                    password.appendChild(document.createTextNode(i.getPassword()));
+                    account.appendChild(password);
 
-                Element username = document.createElement("user");
-                username.appendChild(document.createTextNode(i.getUsername()));
-                account.appendChild(username);
+                    Element username = document.createElement("user");
+                    username.appendChild(document.createTextNode(i.getUsername()));
+                    account.appendChild(username);
 
-                root.appendChild(account);
+                    root.appendChild(account);
+                }
+
+                DOMSource source = new DOMSource(document);
+
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                StreamResult result = new StreamResult(filename);
+                transformer.transform(source, result);
+                change_page(btnRegSubmit, "Menu.fxml");
             }
-
-            DOMSource source = new DOMSource(document);
-
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            StreamResult result = new StreamResult(filename);
-            transformer.transform(source, result);
-            change_page(btnRegSubmit, "Menu.fxml");
 
         }
 
