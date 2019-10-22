@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<AccountList>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><AccountList>
 	<Account>
 		<fname>Sumedh</fname>
 		<lname>Saurabh</lname>
@@ -14,4 +13,4 @@
 		<password>tamucc123</password>
 		<user>admin</user>
 	</Account>
-</AccountList>
+<Account><fname>Ryan</fname><lname>Cardin</lname><email>ryandcardin@gmail.com</email><password>ryancardin</password><user>Ryanc</user></Account></AccountList>

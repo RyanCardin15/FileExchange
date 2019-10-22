@@ -1,8 +1,5 @@
 package sample;
 
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,12 +8,16 @@ import javax.xml.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 import java.io.File;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.awt.event.ActionListener;
+
+import javafx.scene.control.Label;
+import javafx.stage.Popup;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -29,10 +30,7 @@ import org.xml.sax.SAXException;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.EventListener;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -42,13 +40,17 @@ public class Controller {
 
     }
 
-
+    public void change_page(Button b, String page) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource(page));
+        Stage stage = (Stage)b.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
 
     @FXML
-    private Button btnLogin, btnRegister, btnLoginSubmit, btnBack;
+    private Button btnLogin, btnRegister, btnLoginSubmit, btnBack, btnRegSubmit;
 
     @FXML
-    private TextField txtUser, txtPassword;
+    private TextField txtUser, txtPassword, txtFName, txtRegUser, txtRegPassword, txtRegEmail, txtLName;
 
     @FXML
     private String filename = "src\\sample\\account.xml";
@@ -64,35 +66,24 @@ public class Controller {
     }
     @FXML
     protected void reg_click(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
-        Stage stage = (Stage)btnRegister.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        change_page(btnRegister,"register.fxml");
     }
 
     @FXML
     protected void login_click(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Stage stage = (Stage)btnLogin.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        change_page(btnLogin,"login.fxml");
     }
 
     @FXML
     protected void back_click(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        Stage stage = (Stage)btnBack.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        change_page(btnBack,"sample.fxml");
     }
 
-
-
-    public void deleteFile(ActionEvent event, File f){
-
-    }
-    public void validateUser(ActionEvent event) throws IOException{
+    public List<Account> parseXML(List<Account> accList){
         File xmlFile = new File(filename);
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder;
-        List<Account> accList = new ArrayList<>();
+
         try {
             dBuilder = dbFactory.newDocumentBuilder();
             Document doc = dBuilder.parse(String.valueOf(xmlFile));
@@ -116,6 +107,17 @@ public class Controller {
         } catch (ParserConfigurationException | IOException | SAXException e1) {
             e1.printStackTrace();
         }
+
+        return accList;
+    }
+
+    public void deleteFile(ActionEvent event, File f){
+
+    }
+    public void validateUser(ActionEvent event) throws IOException{
+        List<Account> accList = new ArrayList<>();
+        accList = parseXML(accList);
+
         Boolean isSuccess = false;
 
         Account result = accList.parallelStream()
@@ -126,13 +128,15 @@ public class Controller {
             isSuccess = true;
         if(isSuccess==true) {
             System.out.println("This is working");
-            Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-            Stage stage = (Stage) btnLoginSubmit.getScene().getWindow();
-            stage.setScene(new Scene(root));
+            change_page(btnLoginSubmit, "Menu.fxml");
 
         } else {
             System.out.println(result.getPassword() + "\n" + txtPassword.getText());
             System.out.println("This is nt working");
+            Popup errorLogin = new Popup();
+            Label label = new Label("Invalid Login! Try again!");
+            errorLogin.getContent().add(label);
+            txtUser.setText("Invalid Login! Try Again!");
         }
     }
     public void addUser(boolean admin){
@@ -170,4 +174,77 @@ public class Controller {
         return node.getNodeValue(); //value;
     }
 
+    @FXML
+    protected void validateReg(ActionEvent e) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+        Account acc1 = new Account();
+        boolean isSuccess = false;
+
+        List<Account> temp = new ArrayList<>();
+        temp = parseXML(temp);
+
+        acc1.setFName(txtFName.getText());
+        acc1.setLName(txtLName.getText());
+        acc1.setEmail(txtRegEmail.getText());
+        acc1.setPassword(txtRegPassword.getText());
+        acc1.setUsername(txtRegUser.getText());
+        File xmlFile = new File(filename);
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document document = dBuilder.parse(filename);
+
+        Element root = document.getDocumentElement();
+        Element rootElement = document.getDocumentElement();
+
+        List<Account> acc = new ArrayList<Account>();
+        acc.add(acc1);
+
+        Account res = temp.parallelStream()
+                .filter(a -> Objects.equals(a.getUsername(), txtRegUser.getText()))
+                .findAny()
+                .orElse(null);
+        try {
+            if (acc1.getUsername().equals(res.getUsername())) {
+                System.out.println("This is not correct");
+            } else {
+                System.out.println("It's correct");
+            }
+        } catch(NullPointerException n){
+            for (Account i : acc) {
+                Element account = document.createElement("Account");
+                rootElement.appendChild(account);
+
+                Element fname = document.createElement("fname");
+                fname.appendChild(document.createTextNode(i.getfName()));
+                account.appendChild(fname);
+
+                Element lname = document.createElement("lname");
+                lname.appendChild(document.createTextNode(i.getlName()));
+                account.appendChild(lname);
+
+                Element email = document.createElement("email");
+                email.appendChild(document.createTextNode(i.getEmail()));
+                account.appendChild(email);
+
+                Element password = document.createElement("password");
+                password.appendChild(document.createTextNode(i.getPassword()));
+                account.appendChild(password);
+
+                Element username = document.createElement("user");
+                username.appendChild(document.createTextNode(i.getUsername()));
+                account.appendChild(username);
+
+                root.appendChild(account);
+            }
+
+            DOMSource source = new DOMSource(document);
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            StreamResult result = new StreamResult(filename);
+            transformer.transform(source, result);
+            change_page(btnRegSubmit, "Menu.fxml");
+
+        }
+
+    }
 }
