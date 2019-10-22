@@ -102,7 +102,7 @@ public class Controller {
             //now XML is loaded as Document in memory, lets convert it to Object List
             //Test
             for (int i = 0; i < nodeList.getLength(); i++) {
-                System.out.println(nodeList.item(i)); // Error Starts here
+                System.out.println(getAccount(nodeList.item(i))); // Error Starts here
             }
             //
 
@@ -122,12 +122,17 @@ public class Controller {
                 .filter(a -> Objects.equals(a.getUsername(), txtUser.getText()))
                 .findAny()
                 .orElse(null);
-        if(result.getPassword() == txtPassword.getText())
+        if(result.getPassword().equals(txtPassword.getText()))
             isSuccess = true;
-        if(isSuccess) {
+        if(isSuccess==true) {
+            System.out.println("This is working");
             Parent root = FXMLLoader.load(getClass().getResource("home.fxml"));
-            Stage stage = (Stage) btnLogin.getScene().getWindow();
+            Stage stage = (Stage) btnLoginSubmit.getScene().getWindow();
             stage.setScene(new Scene(root));
+
+        } else {
+            System.out.println(result.getPassword() + "\n" + txtPassword.getText());
+            System.out.println("This is nt working");
         }
     }
     public void addUser(boolean admin){
