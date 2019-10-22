@@ -11,7 +11,7 @@
       <TextField layoutX="226.0" layoutY="142.0" promptText="Last Name" />
       <TextField layoutX="226.0" layoutY="175.0" promptText="Email" />
       <PasswordField layoutX="226.0" layoutY="209.0" promptText="Password" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back_click" text="Back" />
       <Button layoutX="255.0" layoutY="243.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Register" />
    </children>
 </AnchorPane>

@@ -76,6 +76,13 @@ public class Controller {
         stage.setScene(new Scene(root));
     }
 
+    @FXML
+    protected void back_click(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Stage stage = (Stage)btnBack.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
+
 
 
     public void deleteFile(ActionEvent event, File f){
