@@ -1,7 +1,7 @@
 /*
 Team Cat
 Ryan Cardin
-Sumedh Sohrab
+Sumedh Saurabh
 Ahn Tran
  */
 package sample;
