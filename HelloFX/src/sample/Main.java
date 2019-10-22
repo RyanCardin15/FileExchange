@@ -24,7 +24,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle(".TXT FILE STORAGE");
+        primaryStage.setTitle("HelloFX - Desktop Cloud Service");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Finished login and registration" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Wipe Final">
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +349,21 @@
       <option name="project" value="LOCAL" />
       <updated>1571712236385</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Wipe">
+      <created>1571784025963</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1571784025963</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Wipe Final">
+      <created>1571784095590</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1571784095590</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -385,6 +401,8 @@
     <MESSAGE value="Back buttons working" />
     <MESSAGE value="Fixed sorta" />
     <MESSAGE value="Finished login and registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished login and registration" />
+    <MESSAGE value="Wipe" />
+    <MESSAGE value="Wipe Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wipe Final" />
   </component>
 </project>
