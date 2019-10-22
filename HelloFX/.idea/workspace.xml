@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Need to fix read values issues within Account attribute of XML file.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/HelloFX/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/HelloFX/sample/sample.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Finished login and registration" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,12 +96,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -350,14 +347,7 @@
       <option name="project" value="LOCAL" />
       <updated>1571712236385</updated>
     </task>
-    <task id="LOCAL-00022" summary="Finished all of Login and Registration and &quot;Validation&quot;! Fuck YEAH!">
-      <created>1571714737680</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1571714737680</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -395,7 +385,6 @@
     <MESSAGE value="Back buttons working" />
     <MESSAGE value="Fixed sorta" />
     <MESSAGE value="Finished login and registration" />
-    <MESSAGE value="Finished all of Login and Registration and &quot;Validation&quot;! Fuck YEAH!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished all of Login and Registration and &quot;Validation&quot;! Fuck YEAH!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished login and registration" />
   </component>
 </project>

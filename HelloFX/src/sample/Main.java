@@ -1,9 +1,13 @@
+/////
 /*
-Team Cat
-Ryan Cardin
-Sumedh Saurabh
-Ahn Tran
+*
+* Sumedh Saurabh
+* Ryan Cardin
+* Anh Tran
+*
  */
+////
+
 package sample;
 
 import javafx.application.Application;

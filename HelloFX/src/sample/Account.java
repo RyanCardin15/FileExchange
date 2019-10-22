@@ -1,9 +1,13 @@
+/////
 /*
-Team Cat
-Ryan Cardin
-Sumedh Sohrab
-Ahn Tran
+ *
+ * Sumedh Saurabh
+ * Ryan Cardin
+ * Anh Tran
+ *
  */
+////
+
 package sample;
 
 public class Account {
