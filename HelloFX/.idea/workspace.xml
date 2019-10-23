@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="HelloFX:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Redesigned UI">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Created Test Package to try out as application.">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/HelloFX_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/HelloFX_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -383,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571788897371</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Created Test Package to try out as application.">
+      <created>1571789693956</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1571789693956</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -428,6 +441,7 @@
     <MESSAGE value="Wipe Final" />
     <MESSAGE value="Name Change" />
     <MESSAGE value="Redesigned UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redesigned UI" />
+    <MESSAGE value="Created Test Package to try out as application." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Test Package to try out as application." />
   </component>
 </project>
