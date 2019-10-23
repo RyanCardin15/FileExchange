@@ -10,10 +10,14 @@
 
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXML;
+
+import javax.swing.*;
 import javax.xml.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,9 +28,14 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
-import java.io.File;
+import java.awt.*;
+import java.io.*;
+import java.lang.Object.*;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Popup;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -38,9 +47,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import java.io.IOException;
+import java.nio.file.Files;
+import static java.nio.file.StandardCopyOption.*;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -59,6 +70,12 @@ public class Controller {
     }
 
     @FXML
+    private ListView listFile;
+
+    @FXML
+    private AnchorPane anchor;
+
+    @FXML
     private Button btnLogin, btnRegister, btnLoginSubmit, btnBack, btnRegSubmit, btnClose;
 
     @FXML
@@ -69,15 +86,76 @@ public class Controller {
 
     @FXML
     private String filename = "src\\sample\\account.xml";
+    private File list;
+    private ObservableList<File> fileObservableList;
+
+    private String filelist = "src\\sample\\files";
 
     public void addFile(FileC f){
-
     }
 
+    @FXML
+    protected void uploadFile(ActionEvent event) throws IOException {
+        FileChooser fileSelection = new FileChooser();
+        fileSelection.setTitle("Open File");
+        Stage stage = (Stage)anchor.getScene().getWindow();
+        File file = fileSelection.showOpenDialog(stage);
+        fileObservableList.add(file);
+
+        String fileTempName = file.getName();
+        listFile.setItems(fileObservableList);
+
+        InputStream inStream = null;
+        OutputStream outStream = null;
+
+        File dest = new File("src\\sample\\files\\" + file.getName());
+        /*try{
+        Files.copy(file,dest, REPLACE_EXISTING);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        */
+
+        inStream = new FileInputStream(file);
+        outStream = new FileOutputStream(dest);
+
+        byte[] buffer = new byte[1024];
+
+
+        int fileLength;
+        while ((fileLength = inStream.read(buffer)) > 0){
+
+            outStream.write(buffer, 0, fileLength );
+
+        }
+
+        inStream.close();
+        outStream.close();
+
+        if(file != null){
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(file);
+
+        }
+    }
 
     @FXML
     protected void initialize(){
-
+        try {
+            list = new File(filelist);
+            File[] folder = list.listFiles();
+            fileObservableList = FXCollections.observableArrayList();
+            for (int i = 0; i < folder.length; i++) {
+                if (folder[i].isFile()) {
+                    fileObservableList.add(folder[i]);
+                } else if (folder[i].isDirectory()) {
+                    System.out.println("It is a Folder!");
+                }
+            }
+            listFile.setItems(fileObservableList);
+        } catch(NullPointerException n){
+            System.out.println("No files!");
+        }
     }
 
     @FXML
