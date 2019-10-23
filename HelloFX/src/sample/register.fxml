@@ -4,17 +4,22 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2e809e;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: radial-gradient(center 50% 50% , radius 450px , #34495E , #1C2833);" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
       <TextField fx:id="txtFName" layoutX="226.0" layoutY="109.0" promptText="First Name" />
       <TextField fx:id="txtLName" layoutX="226.0" layoutY="142.0" promptText="Last Name" />
       <TextField fx:id="txtRegEmail" layoutX="226.0" layoutY="175.0" promptText="Email" />
       <PasswordField fx:id="txtRegPassword" layoutX="226.0" layoutY="209.0" promptText="Password" />
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back_click" text="Back" />
-      <Button fx:id="btnRegSubmit" layoutX="255.0" layoutY="242.0" mnemonicParsing="false" onAction="#validateReg" prefHeight="25.0" prefWidth="91.0" text="Register" />
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back_click" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Back" />
+      <Button fx:id="btnRegSubmit" layoutX="255.0" layoutY="277.0" mnemonicParsing="false" onAction="#validateReg" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Register" />
       <TextField fx:id="txtRegUser" layoutX="226.0" layoutY="77.0" promptText="Username" />
       <Label fx:id="pVal" layoutX="286.0" layoutY="289.0" />
+      <Button fx:id="btnClose" layoutX="545.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Quit" />
    </children>
+   <effect>
+      <DropShadow height="43.24" radius="20.3775" spread="0.18" width="40.27" />
+   </effect>
 </AnchorPane>

@@ -59,7 +59,7 @@ public class Controller {
     }
 
     @FXML
-    private Button btnLogin, btnRegister, btnLoginSubmit, btnBack, btnRegSubmit;
+    private Button btnLogin, btnRegister, btnLoginSubmit, btnBack, btnRegSubmit, btnClose;
 
     @FXML
     private TextField txtUser, txtPassword, txtFName, txtRegUser, txtRegPassword, txtRegEmail, txtLName;
@@ -79,6 +79,14 @@ public class Controller {
     protected void initialize(){
 
     }
+
+    @FXML
+    protected void close(ActionEvent event) throws IOException {
+        Stage stage = (Stage) btnClose.getScene().getWindow();
+        // do what you have to do
+        stage.close();
+    }
+
     @FXML
     protected void reg_click(ActionEvent event) throws IOException {
         change_page(btnRegister,"register.fxml");

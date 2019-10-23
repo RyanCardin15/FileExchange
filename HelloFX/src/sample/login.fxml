@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -17,17 +18,21 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #2e809e;">
+      <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: radial-gradient(center 50% 50% , radius 450px , #34495E , #1C2833);">
          <center>
             <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <PasswordField fx:id="txtPassword" layoutX="224.0" layoutY="137.0" promptText="Password" />
-                  <TextField fx:id="txtUser" layoutX="224.0" layoutY="111.0" promptText="Username" />
-                  <Button fx:id="btnLoginSubmit" layoutX="225.0" layoutY="184.0" mnemonicParsing="false" onAction="#validateUser" prefHeight="32.0" prefWidth="151.0" text="Login" />
-                  <Button fx:id="btnBack" layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onAction="#back_click" text="Back" />
+                  <PasswordField fx:id="txtPassword" layoutX="226.0" layoutY="149.0" promptText="Password" />
+                  <TextField fx:id="txtUser" layoutX="226.0" layoutY="123.0" promptText="Username" />
+                  <Button fx:id="btnLoginSubmit" layoutX="225.0" layoutY="200.0" mnemonicParsing="false" onAction="#validateUser" prefHeight="32.0" prefWidth="151.0" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Login" />
+                  <Button fx:id="btnBack" layoutX="32.0" layoutY="14.0" mnemonicParsing="false" onAction="#back_click" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Back" />
+                  <Button fx:id="btnClose" layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: linear-gradient(to bottom, #AEB6BF, #626567);" text="Quit" />
                </children>
             </Pane>
          </center>
       </BorderPane>
    </children>
+    <effect>
+        <DropShadow height="43.24" radius="20.3775" spread="0.18" width="40.27" />
+    </effect>
 </GridPane>
